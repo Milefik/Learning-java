@@ -1,4 +1,4 @@
-package LessonOne;
+package Lessons;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ public class Main {
         checkSumSign();
         printColor();
         compareNumbers();
-        checkingAmountInInterval(10, 14);
+        System.out.println(checkingAmountInInterval(10, 14));
         numberCheck(0);
         numberCheck2(1);
         printStringNumberTimes("hi", 3);
@@ -18,6 +18,17 @@ public class Main {
         replacementSomeElementsArray();
         fillingTwoDimensionalArray();
         System.out.println(Arrays.toString(createArray(4, 6)));
+
+        Product product = new Product("cookie", "10.07.2025", "Sweet cookie", "Russia", 200, true);
+        product.printProduct();
+
+        Product[] productArray = new Product[5];
+        productArray[0] = new Product("apple","15.05.2025","Green apple","Russia",50, false);
+        productArray[1] = new Product("laptop","13.08.2023","Lenovo","China",50000, true);
+        productArray[2] = new Product("t-shirt","10.04.2025","Zara","Bangladesh",1500, false);
+        productArray[3] = new Product("shampoo","25.02.2025","Schwarzkopf","Germany",500, false);
+        productArray[4] = new Product("book","29.11.2024","Favorite books","Russia",800, true);
+
     }
 
     public static void printThreeWords() {
@@ -62,8 +73,8 @@ public class Main {
         }
     }
 
-    public static void checkingAmountInInterval(int a, int b) {
-        System.out.println(a + b >= 10 && a + b <= 20);
+    public static boolean checkingAmountInInterval(int a, int b) {
+        return a + b >= 10 && a + b <= 20;
     }
 
     public static void numberCheck(int number) {
