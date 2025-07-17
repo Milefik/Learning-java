@@ -1,4 +1,4 @@
-package LessonOne;
+package Lessons;
 
 import java.util.Arrays;
 
@@ -18,6 +18,39 @@ public class Main {
         replacementSomeElementsArray();
         fillingTwoDimensionalArray();
         System.out.println(Arrays.toString(createArray(4, 6)));
+
+        Dog dogBobik = new Dog("Бобик");
+        dogBobik.run(30);
+        dogBobik.swim(12);
+
+        Cat catBarsik = new Cat("Барсик");
+        catBarsik.run(-8);
+        catBarsik.swim(2);
+
+        System.out.println("Кол-во животных: " + Animal.getCount());
+        System.out.println("Кол-во котов: " + Cat.getCount());
+        System.out.println("Кол-во собак: " + Dog.getCount());
+
+        Bowl bowl = new Bowl(50);
+
+        Cat[] cats = new Cat[3];
+        cats[0] = catBarsik;
+        cats[1] = new Cat("Муся");
+        cats[2] = new Cat("Биба");
+
+        for (Cat cat : cats) {
+            System.out.println(cat.name + " сытость = " + cat.eat(bowl, 20));
+        }
+
+        Shape[] shapes = {
+                new Circle(3, "Желтый", "Зеленый"),
+                new Rectangle(2, 5, "Зеленый", "Синий"),
+                new Triangle(5,2,3, "Синий", "Желтый")
+        };
+
+        for (Shape shape : shapes) {
+            System.out.println("[ Периметр: " + shape.getPerimeter() + ", площадь: " + shape.getSquare() + ", цвет фона: " + shape.getFillColor() + ", цвет границ: " + shape.getBorderColor() + " ]");
+        }
     }
 
     public static void printThreeWords() {
