@@ -1,0 +1,1265 @@
+# Postman Echo
+
+###
+# group: Request Methods
+# @name GET Request
+# The HTTP `GET` request method is meant to retrieve data from a server. The data
+# is identified by a unique URI (Uniform Resource Identifier). 
+# A `GET` request can pass parameters to the server using "Query String 
+# Parameters". For example, in the following request,
+# > http://example.com/hi/there?hand=wave
+# The parameter "hand" has the value "wave".
+# This endpoint echoes the HTTP headers, request parameters and the complete
+# URI requested.
+GET https://postman-echo.com/get?
+    foo1=bar1&
+    foo2=bar2
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json with request queries", function () {
+    //     pm.response.to.have.jsonBody('args.foo1', 'bar1')
+    //         .and.have.jsonBody('args.foo2', 'bar2');
+    // });
+%}
+
+<> ./Postman Echo_responses/get_request_woops.200.json
+// https://postman-echo.com/get?foo1=bar1&foo2=bar2
+<> ./Postman Echo_responses/get_request.200.json
+// https://postman-echo.com/get?foo1=bar1&foo2=bar2
+
+###
+# group: Request Methods
+# @name POST Raw Text
+# The HTTP `POST` request method is meant to transfer data to a server 
+# (and elicit a response). What data is returned depends on the implementation
+# of the server.
+# A `POST` request can pass parameters to the server using "Query String 
+# Parameters", as well as the Request Body. For example, in the following request,
+# > POST /hi/there?hand=wave
+# >
+# > <request-body>
+# The parameter "hand" has the value "wave". The request body can be in multiple
+# formats. These formats are defined by the MIME type of the request. The MIME 
+# Type can be set using the ``Content-Type`` HTTP header. The most commonly used 
+# MIME types are:
+# * `multipart/form-data`
+# * `application/x-www-form-urlencoded`
+# * `application/json`
+# This endpoint echoes the HTTP headers, request parameters, the contents of
+# the request body and the complete URI requested.
+POST https://postman-echo.com/post
+Content-Type: text/plain
+
+This is expected to be sent back as part of response body.
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json with request body", function () {
+    //     pm.response.to.have.jsonBody('data', 
+    //         'This is expected to be sent back as part of response body.');
+    // });
+%}
+
+<> ./Postman Echo_responses/post_raw_text.200.json
+// https://postman-echo.com/post
+
+###
+# group: Request Methods
+# @name POST Form Data
+# The HTTP `POST` request method is meant to transfer data to a server 
+# (and elicit a response). What data is returned depends on the implementation
+# of the server.
+# A `POST` request can pass parameters to the server using "Query String 
+# Parameters", as well as the Request Body. For example, in the following request,
+# > POST /hi/there?hand=wave
+# >
+# > <request-body>
+# The parameter "hand" has the value "wave". The request body can be in multiple
+# formats. These formats are defined by the MIME type of the request. The MIME 
+# Type can be set using the ``Content-Type`` HTTP header. The most commonly used 
+# MIME types are:
+# * `multipart/form-data`
+# * `application/x-www-form-urlencoded`
+# * `application/json`
+# This endpoint echoes the HTTP headers, request parameters, the contents of
+# the request body and the complete URI requested when data is sent as a form parameter.
+POST https://postman-echo.com/post
+Content-Type: application/x-www-form-urlencoded
+
+foo1 = bar1 &
+foo2 = bar2
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json with form data", function () {
+    //     pm.response.to.have.jsonBody('form.foo1', 'bar1')
+    //         .and.have.jsonBody('form.foo2', 'bar2');
+    // });
+%}
+
+###
+# group: Request Methods
+# @name PUT Request
+# The HTTP `PUT` request method is similar to HTTP `POST`. It too is meant to 
+# transfer data to a server (and elicit a response). What data is returned depends on the implementation
+# of the server.
+# A `PUT` request can pass parameters to the server using "Query String 
+# Parameters", as well as the Request Body. For example, in the following 
+# raw HTTP request,
+# > PUT /hi/there?hand=wave
+# >
+# > <request-body>
+PUT https://postman-echo.com/put
+Content-Type: text/plain
+
+This is expected to be sent back as part of response body.
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json with form data", function () {
+    //     pm.response.to.have.jsonBody('data', 
+    //         'This is expected to be sent back as part of response body.');
+    // });
+%}
+
+###
+# group: Request Methods
+# @name PATCH Request
+# The HTTP `PATCH` method is used to update resources on a server. The exact
+# use of `PATCH` requests depends on the server in question. There are a number
+# of server implementations which handle `PATCH` differently. Technically, 
+# `PATCH` supports both Query String parameters and a Request Body.
+# This endpoint accepts an HTTP `PATCH` request and provides debug information
+# such as the HTTP headers, Query String arguments, and the Request Body.
+PATCH https://postman-echo.com/patch
+Content-Type: text/plain
+
+This is expected to be sent back as part of response body.
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json with form data", function () {
+    //     pm.response.to.have.jsonBody('data', 
+    //         'This is expected to be sent back as part of response body.');
+    // });
+%}
+
+<> ./Postman Echo_responses/patch_request.200.json
+// https://postman-echo.com/patch
+
+###
+# group: Request Methods
+# @name DELETE Request
+# The HTTP `DELETE` method is used to delete resources on a server. The exact
+# use of `DELETE` requests depends on the server implementation. In general, 
+# `DELETE` requests support both, Query String parameters as well as a Request 
+# Body.
+# This endpoint accepts an HTTP `DELETE` request and provides debug information
+# such as the HTTP headers, Query String arguments, and the Request Body.
+DELETE https://postman-echo.com/delete
+Content-Type: text/plain
+
+This is expected to be sent back as part of response body.
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json with form data", function () {
+    //     pm.response.to.have.jsonBody('data', 
+    //         'This is expected to be sent back as part of response body.');
+    // });
+%}
+
+<> ./Postman Echo_responses/delete_request.200.json
+// https://postman-echo.com/delete
+
+###
+# group: Headers
+# @name Request Headers
+# A `GET` request to this endpoint returns the list of all request headers as part of the response JSON.
+# In Postman, sending your own set of headers through the [Headers tab](https://www.getpostman.com/docs/requests#headers?source=echo-collection-app-onboarding) will reveal the headers as part of the response.
+GET https://postman-echo.com/headers
+my-sample-header: Lorem ipsum dolor sit amet
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // // we check to ensire that the headers we sent as request is returned as part of
+    // // the response body. if you change the request headers, make sure to add them
+    // // to the tests here
+    // pm.test("sample request header should be returned in response body", function () {
+    //     pm.response.to.have.jsonBody('headers.my-sample-header', 'Lorem ipsum dolor sit amet');
+    // });
+%}
+
+<> ./Postman Echo_responses/my-sample-header.200.json
+// https://echo.getpostman.com/headers
+
+###
+# group: Headers
+# @name Response Headers
+# This endpoint causes the server to send custom set of response headers. Providing header values as part of the URL parameters of a `GET` request to this endpoint returns the same as part of response header.
+# To send your own set of headers, simply add or replace the the URL parameters with your own set.
+GET https://postman-echo.com/response-headers?
+    foo1=bar1&
+    foo2=bar2
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has the headers sent as part of request query", function () {
+    //     pm.response.to.have.header('foo1', 'bar1')
+    //         .and.have.header('foo2', 'bar2');
+    // });
+    //
+    // pm.test("sample request param should be returned in response body", function () {
+    //     pm.response.to.have.jsonBody('foo1', 'bar1')
+    //         .and.have.jsonBody('foo2', 'bar2');
+    // });
+%}
+
+<> ./Postman Echo_responses/response_headers.200.html
+// https://echo.getpostman.com/response-headers?Content-Type=text/html&test=response_headers
+
+###
+# group: Authentication Methods
+# @name Basic Auth Success
+# This endpoint simulates a **basic-auth** protected endpoint. 
+# The endpoint accepts a default username and password and returns a status code of `200 ok` only if the same is provided. 
+# Otherwise it will return a status code `401 unauthorized`.
+# > Username: `postman`
+# > 
+# > Password: `password`
+# To use this endpoint, send a request with the header `Authorization: Basic cG9zdG1hbjpwYXNzd29yZA==`. 
+# The cryptic latter half of the header value is a base64 encoded concatenation of the default username and password. 
+# Using Postman, to send this request, you can simply fill in the username and password in the "Authorization" tab and Postman will do the rest for you.
+# To know more about basic authentication, refer to the [Basic Access Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) wikipedia article.
+# The article on [authentication helpers](https://www.getpostman.com/docs/helpers#basic-auth?source=echo-collection-app-onboarding) elaborates how to use the same within the Postman app.
+GET https://postman-echo.com/basic-auth
+Authorization: Basic postman password
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json saying 'authenticated'", function () {
+    //     pm.response.to.have.jsonBody('authenticated', true);
+    // });
+%}
+
+<> ./Postman Echo_responses/200.200.json
+// https://postman-echo.com/basic-auth
+
+###
+# group: Authentication Methods
+# @name Basic Auth Failure
+# This endpoint simulates a **basic-auth** protected endpoint. 
+# The endpoint accepts a default username and password and returns a status code of `200 ok` only if the same is provided. 
+# Otherwise it will return a status code `401 unauthorized`.
+# > Username: `postman`
+# > 
+# > Password: `password`
+# To use this endpoint, send a request with the header `Authorization: Basic cG9zdG1hbjpwYXNzd29yZA==`. 
+# The cryptic latter half of the header value is a base64 encoded concatenation of the default username and password. 
+# Using Postman, to send this request, you can simply fill in the username and password in the "Authorization" tab and Postman will do the rest for you.
+# To know more about basic authentication, refer to the [Basic Access Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) wikipedia article.
+# The article on [authentication helpers](https://www.getpostman.com/docs/helpers#basic-auth?source=echo-collection-app-onboarding) elaborates how to use the same within the Postman app.
+GET https://postman-echo.com/basic-auth
+Authorization: Basic postman wrong password
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json saying 'authenticated'", function () {
+    //     pm.response.to.have.jsonBody('authenticated', true);
+    // });
+%}
+
+<> ./Postman Echo_responses/200.200.json
+// https://postman-echo.com/basic-auth
+<> ./Postman Echo_responses/basic_auth_failure.401.txt
+// https://postman-echo.com/basic-auth
+
+###
+# group: Authentication Methods
+# @name DigestAuth Success
+# This endpoint sends a hashed Digest Authorization header to gain access to a valid `200 Ok` response code. In Postman, it uses the stored [global variables](https://www.getpostman.com/docs/environments#gloval-variables?source=echo-collection-app-onboarding), `echo_digest_realm` and `echo_digest_nonce`, to generate the hashed authorisation header.
+# Within Postman, for this request to successfully authenticate, running the previous request "DigestAuth Request" stores the relevant information within the global variables.
+< {%
+    const realm = request.environment.get("echo_digest_realm")
+    const HA1 = crypto.md5().updateWithText(`postman:${realm}:password`).digest().toHex()
+    const HA2 = crypto.md5().updateWithText(`GET:/digest-auth`).digest().toHex()
+    const nonce = request.environment.get("echo_digest_nonce")
+    const response = crypto.md5().updateWithText(`${HA1}:${nonce}:${HA2}`).digest().toHex()
+    request.variables.set("response", response)
+    // please specify env variables for calculation
+%}
+GET https://postman-echo.com/digest-auth
+Authorization: Digest username=postman, realm={{echo_digest_realm}}, nonce={{echo_digest_nonce}}, uri=/digest-auth, algorithm=MD5, response={{response}}
+Authorization: Digest username="postman", realm="Users", nonce="ni1LiL0O37PRRhofWdCLmwFsnEtH1lew", uri="/digest-auth", response="254679099562cf07df9b6f5d8d15db44", opaque=""
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // tests["response code is 200"] = responseCode.code === 200;
+    // tests["body contains authenticated"] = responseBody.has("authenticated");
+%}
+
+<> ./Postman Echo_responses/200.200.json
+// https://postman-echo.com/digest-auth
+
+###
+# group: Authentication Methods
+# @name Hawk Auth
+# This endpoint is a Hawk Authentication protected endpoint. [Hawk authentication](https://github.com/hueniverse/hawk) is a widely used protocol for protecting API endpoints. One of Hawk's main goals is to enable HTTP authentication for services that do not use TLS (although it can be used in conjunction with TLS as well).
+# In order to use this endpoint, select the "Hawk Auth" helper inside Postman, and set the following values:
+# Hawk Auth ID: `dh37fgj492je`
+# Hawk Auth Key: `werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn`
+# Algorithm: `sha256`
+# The rest of the values are optional, and can be left blank. Hitting send should give you a response with a status code of 200 OK.
+GET https://postman-echo.com/auth/hawk
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="access_token"
+
+xyz1
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+
+U1
+--WebAppBoundary
+Content-Disposition: form-data; name="server_secret"
+
+zeppelin
+--WebAppBoundary
+Content-Disposition: form-data; name="admin"
+
+true
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json saying passed 'status'", function () {
+    //     pm.response.to.have.jsonBody('status', 'pass');
+    // });
+%}
+
+<> ./Postman Echo_responses/success.200.json
+// https://echo.getpostman.com/auth/hawk
+
+###
+# group: Authentication Methods
+# @name OAuth1.0 (verify signature)
+# OAuth1.0a is a specification that defines a protocol that can be used by one
+# service to access "protected" resources (endpoints) on another service. A
+# major part of OAuth1.0 is HTTP Request Signing. This endpoint allows you to 
+# check whether the request calculation works properly in the client. 
+# The endpoint supports the HTTP ``Authorization`` header. In case the signature
+# verification fails, the endpoint provides the four debug values,
+# * ``base_uri``
+# * ``normalized_param_string``
+# * ``base_string``
+# * ``signing_key``
+# For more details about these parameters, check the [OAuth1.0a Specification](http://oauth.net/core/1.0a/)
+# In order to use this endpoint, you can set the following values:
+# > Consumer Key: ``RKCGzna7bv9YD57c``
+# >
+# > Consumer Secret: ``D+EdQ-gs$-%@2Nu7``
+# If you are using Postman, also check the "Add params to header" and 
+# "Auto add parameters" boxes.
+GET https://postman-echo.com/oauth1
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="code"
+
+xWnkliVQJURqB2x1
+--WebAppBoundary
+Content-Disposition: form-data; name="grant_type"
+
+authorization_code
+--WebAppBoundary
+Content-Disposition: form-data; name="redirect_uri"
+
+https://www.getpostman.com/oauth2/callback
+--WebAppBoundary
+Content-Disposition: form-data; name="client_id"
+
+abc123
+--WebAppBoundary
+Content-Disposition: form-data; name="client_secret"
+
+ssh-secret
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response body has json saying passed 'status'", function () {
+    //     pm.response.to.have.jsonBody('status', 'pass');
+    // });
+%}
+
+<> ./Postman Echo_responses/200.200_1.json
+// https://echo.getpostman.com/oauth1
+<> ./Postman Echo_responses/401.401.json
+// https://echo.getpostman.com/oauth1
+
+###
+# group: Cookie Manipulation
+# @name Set Cookies
+# The cookie setter endpoint accepts a list of cookies and their values as part of URL parameters of a `GET` request. These cookies are saved and can be subsequently retrieved or deleted. The response of this request returns a JSON with all cookies listed.
+# To set your own set of cookies, simply replace the URL parameters "foo1=bar1&foo2=bar2" with your own set of key-value pairs.
+GET https://postman-echo.com/cookies/set?
+    foo1=bar1&
+    foo2=bar2
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test('response should be 200 or 302', function () {
+    //     pm.expect(pm.response.code).to.be.oneOf([200, 302]);
+    // });
+    //
+    // pm.test('the "foo1" cookie has correct value', function () {
+    //     pm.expect(pm.cookies.toObject()).to.have.property('foo1', 'bar1');
+    // });
+    //
+    // pm.test('the "foo2" cookie has correct value', function () {
+    //     pm.expect(pm.cookies.toObject()).to.have.property('foo2', 'bar2');
+    // });
+    //
+    // // response code could be either a 200 or a redirection based on the settings of 
+    // // the http client. hence we need to handle both cases
+    // pm.test('response body should be valid', function () {
+    //     if (pm.response.code === 200) {
+    //         pm.response.to.have.jsonBody('cookies.foo1', 'bar1')
+    //             .and.have.jsonBody('cookies.foo2', 'bar2');
+    //     }
+    //     else {
+    //         pm.response.to.have.body('Found. Redirecting to /cookies');
+    //     }
+    // });
+%}
+
+<> ./Postman Echo_responses/cookies.200.json
+// https://postman-echo.com/cookies/set?foo1=bar1&foo2=bar2
+
+###
+# group: Cookie Manipulation
+# @name Get Cookies
+# Use this endpoint to get a list of all cookies that are stored with respect to this domain. Whatever key-value pairs that has been previously set by calling the "Set Cookies" endpoint, will be returned as response JSON.
+GET https://postman-echo.com/cookies
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test('the "foo1" cookie has correct value', function () {
+    //     pm.expect(pm.cookies.toObject()).to.have.property('foo1', 'bar1');
+    // });
+    //
+    // pm.test('the "foo2" cookie has correct value', function () {
+    //     pm.expect(pm.cookies.toObject()).to.have.property('foo2', 'bar2');
+    // });
+    //
+    // pm.test('response body should be valid', function () {
+    //     pm.response.to.have.jsonBody('cookies.foo1', 'bar1');
+    //     pm.response.to.have.jsonBody('cookies.foo2', 'bar2');
+    // });
+%}
+
+<> ./Postman Echo_responses/cookies.200_1.json
+// https://postman-echo.com/cookies
+
+###
+# group: Cookie Manipulation
+# @name Delete Cookies
+# One or more cookies that has been set for this domain can be deleted by providing the cookie names as part of the URL parameter. The response of this request is a JSON containing the list of currently set cookies.
+GET https://postman-echo.com/cookies/delete?
+    foo1=null&
+    foo2=null
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test('response should be 200 or 302', function () {
+    //     pm.expect(pm.response.code).to.be.oneOf([200, 302]);
+    // });
+    //
+    // pm.test('the "foo1" cookie should not be present', function () {
+    //     pm.expect(pm.cookies.toObject()).to.not.have.property('foo1');
+    // });
+    //
+    // pm.test('the "foo2" cookie should not be present', function () {
+    //     pm.expect(pm.cookies.toObject()).to.not.have.property('foo2');
+    // });
+    //
+    // // response code could be either a 200 or a redirection based on the settings of 
+    // // the http client. hence we need to handle both cases
+    // pm.test('response body should be valid', function () {
+    //     if (pm.response.code === 200) {
+    //         pm.response.to.not.have.jsonBody('cookies.foo1');
+    //         pm.response.to.not.have.jsonBody('cookies.foo2');
+    //     }
+    //     else {
+    //         pm.response.to.have.body('Found. Redirecting to /cookies');
+    //     }
+    // });
+%}
+
+<> ./Postman Echo_responses/cookies_response.200.json
+// https://postman-echo.com/cookies/delete?foo1=null&foo2=null
+
+###
+# group: Utilities
+# @name Response Status Code
+# This endpoint allows one to instruct the server which status code to respond with.
+# Every response is accompanied by a status code. The status code provides a summary of the nature of response sent by the server. For example, a status code of `200` means everything is okay with the response and a code of `404` implies that the requested URL does not exist on server. 
+# A list of all valid HTTP status code can be found at the [List of Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) wikipedia article. When using Postman, the response status code is described for easy reference.
+# Note that if an invalid status code is requested to be sent, the server returns a status code of `400 Bad Request`.
+GET https://postman-echo.com/status/200
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has valid json body", function () {
+    //     pm.response.to.have.jsonBody('status');
+    // });
+    //
+    // // additional sanity tests
+    // pm.test("status in response body must match the one in request", function () {
+    //     pm.response.to.have.jsonBody('status', Number(_.get(pm.request, 'url.path[1]')));
+    // });
+%}
+
+<> ./Postman Echo_responses/200.200_2.json
+// https://echo.getpostman.com/status/200
+
+###
+# group: Utilities
+# @name Streamed Response
+# This endpoint allows one to recieve streaming http response using [chunked transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) of a configurable length.
+# A streaming response does not wait for the entire response to be generated on server before flushing it out. This implies that for a fairly large response, parts of it can be streamed to the requestee as and when it is generated on server. The client can then take actions of processing this partially received data.
+GET https://postman-echo.com/stream/5
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has chunked transfer encoding header", function () {
+    //     pm.response.to.have.header('transfer-encoding', 'chunked');
+    // });
+%}
+
+###
+# group: Utilities
+# @name Delay Response
+# Using this endpoint one can configure how long it takes for the server to come back with a response. Appending a number to the URL defines the time (in seconds) the server will wait before responding.
+# Note that a maximum delay of 10 seconds is accepted by the server.
+GET https://postman-echo.com/delay/2
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // var _ = require('lodash');
+    //
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has valid json body", function () {
+    //     pm.response.to.have.jsonBody('delay');
+    // });
+    //
+    // // additional sanity tests
+    // pm.test("request must have a valid delay", function () {
+    //     pm.expect(Number(_.get(pm.request, 'url.path[1]'))).to.be.above(0).and.below(10);
+    // });
+    // pm.test("response should take more time than the delay specified", function () {
+    //     pm.expect(pm.response.responseTime).to.be.above(Number(_.get(pm.request, 'url.path[1]')));
+    // });
+%}
+
+<> ./Postman Echo_responses/success-response.200.json
+// https://echo.getpostman.com/delay/3
+
+###
+# group: Utilities
+# @name Get UTF8 Encoded Response
+# If a response of an endpoint requires to send data beyond the basic English / ASCII character set, the `charset` parameter in the `Content-Type` response header defines the character encoding policy.
+# This endpoint returns an `UTF8` character encoded response body with text in various languages such as Greek, Latin, East Asian, etc. Postman can interpret the character encoding and use appropriate methods to display the character set in responses.
+GET https://postman-echo.com/encoding/utf8
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has charset in content-type header", function () {
+    //     pm.response.to.have.header('content-type', 'text/html; charset=utf-8');
+    // });
+    //
+    // pm.test("response has chunked transfer encoding header", function () {
+    //     pm.response.to.have.header('transfer-encoding', 'chunked');
+    // });
+%}
+
+###
+# group: Utilities
+# @name GZip Compressed Response
+# This endpoint returns the response using [gzip compression algoritm](https://en.wikipedia.org/wiki/Gzip).
+# The uncompressed response is a JSON string containing the details of the request sent by the client. For this endpoint to work, one should request with `Accept-encoding` header containing `gzip` as part of its value. Postman supports gzip, deflate and SDCH decoding and automatically sends them as part of the request.
+# HTTP Compression allows the server to send responses in a compressed format, which is uncompressed by the client before processing. This reduces network bandwidth consumption at the cost of increase in CPU usage.
+# To know more about this, refer the [HTTP Compression](https://en.wikipedia.org/wiki/HTTP_compression) wikipedia article.
+GET https://postman-echo.com/gzip
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has valid json body", function () {
+    //     pm.response.to.have.jsonBody('gzipped', true);
+    // });
+    //
+    // pm.test('response headers should indicate valid content encoding', function  () {
+    //     pm.response.to.have.header('content-encoding', 'gzip')
+    //         .and.have.header('content-type', 'application/json');
+    // });
+    //
+    // pm.test('requesting http client should accept compressed response', function () {
+    //     pm.expect(pm.response.json()).to.have.nested.property('headers.accept-encoding')
+    //         .and.to.match(/.*gzip.*/);
+    // });
+%}
+
+###
+# group: Utilities
+# @name Deflate Compressed Response
+# This endpoint returns the response using [deflate compression algoritm](https://en.wikipedia.org/wiki/DEFLATE). 
+# The uncompressed response is a JSON string containing the details of the request sent by the client. For this endpoint to work, one should request with `Accept-encoding` header containing `deflate` as part of its value. Postman supports gzip, deflate and SDCH decoding and automatically sends them as part of the request.
+# HTTP Compression allows the server to send responses in a compressed format, which is uncompressed by the client before processing. This reduces network bandwidth consumption at the cost of increase in CPU usage.
+# To know more about this, refer the [HTTP Compression](https://en.wikipedia.org/wiki/HTTP_compression) wikipedia article.
+GET https://postman-echo.com/deflate
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has valid json body", function () {
+    //     pm.response.to.have.jsonBody('deflated', true);
+    // });
+    //
+    // pm.test('response headers should indicate valid content encoding', function  () {
+    //     pm.response.to.have.header('content-encoding', 'deflate')
+    //         .and.have.header('content-type', 'application/json');
+    // });
+    //
+    // pm.test('requesting http client should accept compressed response', function () {
+    //     pm.expect(pm.response.json()).to.have.nested.property('headers.accept-encoding')
+    //         .and.to.match(/.*deflate.*/);
+    // });
+%}
+
+###
+# group: Utilities
+# @name IP address in JSON format
+# A simple `GET` request to return the IP address of the source request in the following `JSON` format:
+# ```json
+# {
+#   ip: "request-ip-address"
+# }
+# ```
+GET https://postman-echo.com/ip
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response has valid json body", function () {
+    //     pm.response.to.have.jsonBody('ip');
+    // });
+    //
+    // pm.test("response must return a valid ip address", function () {
+    //     pm.expect(pm.response.json().ip).to
+    //         // a really gnarly regular expression to ensure that ip address is in correct format
+    //         .match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Current UTC time
+# A simple `GET` request to `/time/now` to return the current timestamp as a UTC string.
+# ```
+# Fri, 04 Nov 2016 09:00:46 GMT
+# ```
+GET https://postman-echo.com/time/now
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response time matches server response 'date' header", function () {
+    //     pm.expect(pm.response.text()).to.eql(pm.response.headers.get('date'))
+    // });
+%}
+
+<> ./Postman Echo_responses/time_as_text.200.html
+// https://postman-echo.com/time/now
+
+###
+# group: Utilities / Date and Time
+# @name Timestamp validity
+# A simple `GET` request to `/time/valid` to determine the validity of the timestamp, (current by default).
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a valid key to indicate the result. The response code is `200`.
+# ```
+# {
+#   valid: true/false
+# }
+# ```
+GET https://postman-echo.com/time/valid?
+    timestamp=2016-10-10
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say whether request query time is valid", function () {
+    //     pm.response.to.have.jsonBody('valid', true);
+    // });
+%}
+
+<> ./Postman Echo_responses/invalid_timestamp.200.json
+// https://postman-echo.com/time/valid?timestamp=2016-10-10
+<> ./Postman Echo_responses/valid_timestamp.200.json
+// https://postman-echo.com/time/valid?timestamp=2016-10-10
+
+###
+# group: Utilities / Date and Time
+# @name Format timestamp
+# A simple `GET` request to `/time/format` to convert the timestamp to any desired valid format.
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `format` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   format: "formatted-timestamp"
+# }
+# ```
+GET https://postman-echo.com/time/format?
+    timestamp=2016-10-10&
+    format=mm
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say whether request query time is valid", function () {
+    //     pm.response.to.have.jsonBody('format', '20');
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Extract timestamp unit
+# A simple `GET` request to `/time/unit` to extract the specified timestamp unit (as provided in the `unit` query parameter). The default unit returned is the `year`.
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `unit` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   unit: "extracted-timestamp-unit"
+# }
+# ```
+GET https://postman-echo.com/time/unit?
+    timestamp=2016-10-10&
+    unit=day
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say whether request query unit is valid", function () {
+    //     pm.response.to.have.jsonBody('unit', 1);
+    // });
+%}
+
+<> ./Postman Echo_responses/extract_timestamp_unit.200.json
+// https://postman-echo.com/time/unit?timestamp=2016-10-10&unit=day
+
+###
+# group: Utilities / Date and Time
+# @name Time addition
+# A simple `GET` request to `/time/add` to add units of time to the specified / current timestamp (as provided in the `years`, `months`, `days`, `hours`, `minutes`, `seconds`, and `milliseconds` query parameters).
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `sum` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   sum: "sum of (provided / current) and provided timestamps"
+# }
+# ```
+GET https://postman-echo.com/time/add?
+    timestamp=2016-10-10&
+    years=100
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should return the added years", function () {
+    //     pm.response.to.have.jsonBody('sum', 'Sat Oct 10 2116 00:00:00 GMT+0000');
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Time subtraction
+# A simple `GET` request to `/time/subtract` to subtract units of time from the specified / current timestamp (as provided in the `years`, `months`, `days`, `hours`, `minutes`, `seconds`, and `milliseconds` query parameters).
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `difference` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   difference: "difference between (provided / current) and provided timestamps"
+# }
+# ```
+GET https://postman-echo.com/time/subtract?
+    timestamp=2016-10-10&
+    years=50
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should return the subtracted years", function () {
+    //     pm.response.to.have.jsonBody('difference', 'Mon Oct 10 1966 00:00:00 GMT+0000');
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Start of time
+# A simple `GET` request to `/time/start` to return a relative timstamp in the past from the specified / current timestamp (as provided in the `unit` query parameter).
+# For instance, if the `unit` has been specified as `month`, the returned timestamp would indicate the beginning of the current month. Similar results are returned for other units of time, like: `years`, `months`, `days`, `hours`, `minutes`, `seconds`, and `milliseconds`
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `start` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   start: "A timestamp from the past, depending on the `unit` specified"
+# }
+# ```
+GET https://postman-echo.com/time/start?
+    timestamp=2016-10-10&
+    unit=month
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should return the beginning of month", function () {
+    //     pm.response.to.have.jsonBody('start', 'Sat Oct 01 2016 00:00:00 GMT+0000');
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Object representation
+# A simple `GET` request to `/time/object` to return the current / provided timestamp as a JSON object.
+# For instance, if the `unit` has been specified as `month`, the returned timestamp would indicate the beginning of the current month. Similar results are returned for other units of time, like: `years`, `months`, `days`, `hours`, `minutes`, `seconds`, and `milliseconds`
+# This endpoint accepts `timestamp`, `locale`, `format`, and `strict` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   years: 2016,
+#   months: 10,
+#   days: 10,
+#   hours: 23,
+#   minutes: 34,
+#   seconds: 20,
+#   milliseconds: 980
+# }
+# ```
+GET https://postman-echo.com/time/object?
+    timestamp=2016-10-10
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should return the date components", function () {
+    //     pm.expect(pm.response.json()).to.eql({
+    //         "years": 2016,
+    //         "months": 9,
+    //         "date": 10,
+    //         
+    //         "hours": 0,
+    //         "minutes": 0,
+    //         "seconds": 0,
+    //         "milliseconds": 0
+    //     });
+    // });
+%}
+
+<> ./Postman Echo_responses/object_representation.200.json
+// https://postman-echo.com/time/object?timestamp=2016-10-10
+
+###
+# group: Utilities / Date and Time
+# @name Before comparisons
+# A simple `GET` request to `/time/before` to check if the provided timestamps is before a comparison `target` (query parameter).
+# This endpoint accepts `timestamp`, `locale`, `format`, `strict`, and `target` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `before` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   before: true/false
+# }
+# ```
+GET https://postman-echo.com/time/before?
+    timestamp=2016-10-10&
+    target=2017-10-10
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say timestamp is before target", function () {
+    //     pm.response.to.have.jsonBody('before', true);
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name After comparisons
+# A simple `GET` request to `/time/after` to check if the provided timestamps is after a comparison `target` (query parameter).
+# This endpoint accepts `timestamp`, `locale`, `format`, `strict`, and `target` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `after` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   after: true/false
+# }
+# ```
+GET https://postman-echo.com/time/after?
+    timestamp=2016-10-10&
+    target=2017-10-10
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say timestamp is not after target", function () {
+    //     pm.response.to.have.jsonBody('after', false);
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Between timestamps
+# A simple `GET` request to `/time/between` to check if the provided timestamp is between a range specified by the `start` and `end` query parameters. A resolution limit can also be specified by the `unit` query parameter.
+# For instance, for a resolution `unit` of `month`,
+# `2016-10-05` does lie between `2016-11-02` and `2016-09-01`.
+# This endpoint also accepts `timestamp`, `locale`, `format`, `strict`, and `target` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `between` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   between: true/false
+# }
+# ```
+GET https://postman-echo.com/time/between?
+    timestamp=2016-10-10&
+    start=2017-10-10&
+    end=2019-10-10
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say timestamp is not between start and end", function () {
+    //     pm.response.to.have.jsonBody('between', false);
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Leap year check
+# A simple `GET` request to `/time/leap` to check if the provided/current timestamp belongs to a leap year.
+# This endpoint also accepts `timestamp`, `locale`, `format`, `strict`, and `target` query parameters to construct the date time instance to check against.
+# Responses are provided in JSON format, with a `leap` key to indicate the result. The response code is `200` for valid query parameters, and `400` otherwise.
+# ```
+# {
+#   leap: true/false
+# }
+# ```
+GET https://postman-echo.com/time/leap?
+    timestamp=2016-10-10
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // pm.test("response is ok", function () {
+    //     pm.response.to.have.status(200);
+    // });
+    //
+    // pm.test("response json should say timestamp is within leap year", function () {
+    //     pm.response.to.have.jsonBody('leap', true);
+    // });
+%}
+
+###
+# group: Utilities / Date and Time
+# @name Current time in UTC (returned as object)
+GET https://postman-echo.com/time/object
+
+<> ./Postman Echo_responses/current_time_in_utc_(returned_as_object).200.json
+// https://postman-echo.com/time/object
+
+###
+# group: Auth: Digest
+# @name DigestAuth Request
+# Performing a simple `GET` request to this endpoint returns status code `401 Unauthorized` with `WWW-Authenticate` header containing information to successfully authenticate subsequent requests.
+# The `WWW-Authenticate` header must be processed to extract `realm` and `nonce` values to hash subsequent requests.
+# When this request is executed within Postman, the script attached with this request does the hard work of extracting realm and nonce from the header and set it as [global variables](https://www.getpostman.com/docs/environments#global-variables?source=echo-collection-app-onboarding) named `echo_digest_nonce` and `echo_digest_realm`.
+# These variables are re-used in subsequent request for seamless integration of the two requests.
+GET https://postman-echo.com/digest-auth
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="code"
+
+xWnkliVQJURqB2x1
+--WebAppBoundary
+Content-Disposition: form-data; name="grant_type"
+
+authorization_code
+--WebAppBoundary
+Content-Disposition: form-data; name="redirect_uri"
+
+https://www.getpostman.com/oauth2/callback
+--WebAppBoundary
+Content-Disposition: form-data; name="client_id"
+
+abc123
+--WebAppBoundary
+Content-Disposition: form-data; name="client_secret"
+
+ssh-secret
+--WebAppBoundary
+
+> {%
+    // TODO: migrate to HTTP Client Response handler API
+    // tests["response code is 401"] = responseCode.code === 401;
+    // tests["response has WWW-Authenticate header"] = (postman.getResponseHeader('WWW-Authenticate'));
+    //
+    // var authenticateHeader = postman.getResponseHeader('WWW-Authenticate'),
+    //     realmStart = authenticateHeader.indexOf('"',authenticateHeader.indexOf("realm")) + 1 ,
+    //     realmEnd = authenticateHeader.indexOf('"',realmStart),
+    //     realm = authenticateHeader.slice(realmStart,realmEnd),
+    //     nonceStart = authenticateHeader.indexOf('"',authenticateHeader.indexOf("nonce")) + 1,
+    //     nonceEnd = authenticateHeader.indexOf('"',nonceStart),
+    //     nonce = authenticateHeader.slice(nonceStart,nonceEnd);
+    //     
+    // postman.setGlobalVariable('echo_digest_realm', realm);
+    // postman.setGlobalVariable('echo_digest_nonce', nonce);
+%}

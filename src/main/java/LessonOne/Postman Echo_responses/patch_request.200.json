@@ -1,0 +1,22 @@
+{
+  "args": {},
+  "data": "This is expected to be sent back as part of response body.",
+  "files": {},
+  "form": {},
+  "headers": {
+    "x-forwarded-proto": "https",
+    "x-forwarded-port": "443",
+    "host": "postman-echo.com",
+    "x-amzn-trace-id": "Root=1-62692cd9-0c0522db189f4ace45f96b58",
+    "content-length": "58",
+    "content-type": "text/plain",
+    "user-agent": "PostmanRuntime/7.29.0",
+    "accept": "*/*",
+    "cache-control": "no-cache",
+    "postman-token": "e0327d6d-66b1-4009-a95f-95c41177b9cb",
+    "accept-encoding": "gzip, deflate, br",
+    "cookie": "sails.sid=s%3AaaxVxsGuRjCno-7IVEL6AlUt-cvSw9E8.HkNgHa0ueHT%2Bi4zTwlWcE4wG3nR78igzwuXmv4zmMtc"
+  },
+  "json": null,
+  "url": "https://postman-echo.com/patch"
+}

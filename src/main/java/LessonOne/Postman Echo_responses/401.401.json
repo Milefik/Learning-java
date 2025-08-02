@@ -1,0 +1,8 @@
+{
+  "status": "fail",
+  "message": "HMAC-SHA1 verification failed",
+  "base_uri": "https://echo.getpostman.com/oauth1",
+  "normalized_param_string": "oauth_consumer_key=RKCGzna7bv9YD57c_wrong&oauth_nonce=8LTsU2&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1472121295&oauth_version=1.0",
+  "base_string": "GET&https%3A%2F%2Fecho.getpostman.com%2Foauth1&oauth_consumer_key%3DRKCGzna7bv9YD57c_wrong%26oauth_nonce%3D8LTsU2%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1472121295%26oauth_version%3D1.0",
+  "signing_key": "D%2BEdQ-gs%24-%25%402Nu7&"
+}
