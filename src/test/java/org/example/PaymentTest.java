@@ -1,6 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,11 +15,14 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("Платежи")
+@Feature("MTS Оплата")
 public class PaymentTest {
     static WebDriver driver;
     static WebDriverWait wait;
 
     @BeforeEach
+    @Step("Открываем браузер и переходим на mts.by")
     void setup() {
         driver = WebDriverManager.chromedriver().create();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -32,6 +36,8 @@ public class PaymentTest {
     }
 
     @Test
+    @Story("Проверка плейсхолдеров")
+    @Description("Проверка корректности отображения плейсхолдеров во всех вкладках оплаты")
     void testPlaceholdersForAllTabs() {
         PaymentPage page = new PaymentPage(driver, wait);
 
@@ -49,6 +55,8 @@ public class PaymentTest {
     }
 
     @Test
+    @Story("Оплата услуг")
+    @Description("Проверка корректности данных в окне оплаты")
     void testServicesPaymentFlow() {
         PaymentPage page = new PaymentPage(driver, wait);
 
